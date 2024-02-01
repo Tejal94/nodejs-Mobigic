@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawa Protfolio</title>
+    <link rel="icon" type="image/x-icon" href="assests/LOGO BG black.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+
+
+
+
+</head>
+
+
+<body onload="load()">
+
+    <!-- NAV BAR SURU -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-scrolled">
+        <div class="container-fluid">
+            <img src="assests/LOGO NO BG WHITE (1).png" alt="" width="60" height="60"
+                class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="Index.html">K.A.W.A.</a>
+
+            <button id="button" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation" input type="button" onclick="play()"><audio id="audio"
+                    src="assests/woof.mp3"></audio>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="About_us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="Sterlization.html">Sterilization</a>
+                    </li>
+
+                    <!-- ADOPTION WALA SURU -->
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" id="dropbtn" href="Adoption-dog.html">Adoption</a>
+
+                            <!-- <div class="dropdown-content">
+                                <br><a href="#">Adopt a Dog/Cat
+                                    <i class="fa-sharp fa-solid fa-dog"></i>
+                                </a> <br>
+                                <a href="#">Adopt a 
+                                    <i class="fa-sharp fa-solid fa-cat">
+
+                                    </i>
+                                </a>
+                            </div> -->
+                        </div>
+                    </li>
+
+                    <!-- ADOPTION WALA SAMPLA -->
+
+
+                    <!-- GET INVOLVED WALA -->
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" id="dropbtn" href="#">Get Involved</a>
+
+                            <div class="dropdown-content">
+                                <a href="Involve.html">Sponsor an Animal
+                                    <i class="fa-solid fa-handshake-simple"></i>
+                                </a><br>
+                                <a href="Involve.html">Foster Puppy or Kitten
+                                    <i class="fa-solid fa-house-medical"></i>
+                                </a><br>
+                                <a href="Involve.html">Become Volunteer
+                                    <i class="fa-solid fa-hand-holding-hand"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <!-- GET INVOLVED WALA -->
+
+                    <!-- ANIMAL RESUCE WALA -->
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" id="dropbtn">Animal Rescue</a>
+
+                            <div class="dropdown-content">
+                                <a href="rescue.html" class="dark">Animal Lost or Found <i
+                                        class="fa-solid fa-exclamation"></i></a><br>
+                                <a href="rescue.html#rescueform">Report Animal Cruelty <i class="fa-solid fa-hands-bound"></i></a><br>
+                                <a href="rescue.html">Surrender Animal <i class="fa-sharp fa-solid fa-hands-holding-child"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- ANIMAL RESUCE WALA -->
+
+                    <!-- DONATION WALA SURU -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="Donation.html">Donate
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </a>
+                    </li>
+
+                    <!-- DONATION WALA SAMPLA -->
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="Contacts.html">Contact Us <i
+                                class="fa-solid fa-map-location-dot"></i></a>
+                    </li>   
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NAV BAR SAMPLA -->
+
+
+
+
+
+    <div class="background">
+        <img src="assests/brown dog.jpg" class="image-fluid">
+        <div class="heading-firstpage text-center justify-content-center container-fluid l">
+
+            <h1 id="head">Kothrud Animal Welfare Association</h1>
+
+        </div>
+
+    </div>
+    
+
+    <!-- FOOT STEP SURU -->
+    <div class="wrap">
+        <div class="upper">
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+        </div>
+        <div class="lower">
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+            <img src="assests/white paw.png" />
+
+        </div>
+    </div>
+    <!-- FOOT STEPS SAMPLI -->
+
+    <!-- COUNTER WALA DIV SURU (kasa kela VIcharu Naka) -->
+
+    <div class="container-fluid offset pb-4 p-1 justify-content-center mx-auto d-block img-fluid">
+
+        <div class="First-Circle load()">
+
+            <p>
+            <div class="d-flex justify-content-center fs-1 fw-bold text-center p-1 " style="color: #cacaca;">Helping
+                Furry
+                Buddies Since 2020 </div>
+            </p>
+            <p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <p class="fs-2 text-light fw-bold"> <span id='0101'>2800</span>+</p>
+                        <p class="text-light align-content-center fw-bold">Resuced Animals</p>
+                    </div>
+                    <div class="col-sm">
+                        <p class="fs-2 text-light fw-bold"> <span id='0102'>1500</span>+</p>
+                        <p class="text-light align-content-center fw-bold">Sterlization</p>
+                    </div>
+                    <div class="col-sm">
+                        <p class="fs-2 text-light fw-bold"><span id='0103'>250</span>+</p>
+                        <p class="text-light align-content-center fw-bold">Successful Adoptions</p>
+                    </div>
+                    <div class="col-sm img-fluid img-fluid d-flex justify-content-center">
+                        <IMG SRC="assests/02-PM-unscreen.gif" alt="centered image">
+                    </div>
+                </div>
+            </div>
+            </p>
+            <script>
+                function animate(obj, initVal, lastVal, duration) {
+                    let startTime = null;
+
+                    //get the current timestamp and assign it to the currentTime variable
+                    let currentTime = Date.now();
+
+                    //pass the current timestamp to the step function
+                    const step = (currentTime) => {
+
+                        //if the start time is null, assign the current time to startTime
+                        if (!startTime) {
+                            startTime = currentTime;
+                        }
+
+                        //calculate the value to be used in calculating the number to be displayed
+                        const progress = Math.min((currentTime - startTime) / duration, 1);
+
+                        //calculate what to be displayed using the value gotten above
+                        obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+
+                        //checking to make sure the counter does not exceed the last value (lastVal)
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            window.cancelAnimationFrame(window.requestAnimationFrame(step));
+                        }
+                    };
+                    //start animating
+                    window.requestAnimationFrame(step);
+                }
+                let text1 = document.getElementById('0101');
+                let text2 = document.getElementById('0102');
+                let text3 = document.getElementById('0103');
+                const load = () => {
+                    animate(text1, 0, 3000, 7000);
+                    animate(text2, 0, 1500, 7000);
+                    animate(text3, 0, 250, 7000);
+                }
+            </script>
+        </div>
+    </div>
+    </div>
+
+    <!-- COUNTER WALA DIV SAMPLA (kasa kela VIcharu Naka) -->
+
+
+
+    <!-- FOOTER SURU -->
+    <footer class="bg-dark text-white justify-content-between">
+        <section class="mx-auto pt-3">
+            <div class="container pb-0 d-flex justify-content">
+
+
+                <a class="btn btn-outline-light btn-floating m-1 mx-auto" href="Adoption-dog.html" role="button">
+                    <img src="assests/white paw fliped.png" alt="" width="30" height="30"
+                        class="d-flex justify-content-start align-text-top mx-auto">
+                    Adopt Animal</a>
+
+                <a class="btn btn-outline-light btn-floating m-1 mx-auto" href="Donation.html" role="button">
+                    <img src="assests/WhitePaw-for Walking.png" alt="" width="30" height="30"
+                        class="d-flex justify-content-end align-text-top mx-auto">
+                    Donate</a>
+
+
+            </div>
+        </section>
+    </footer>
+    <footer class="bg-dark text-center text-white">
+
+        <section class="mb-4 mx-auto">
+
+            <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3" href="#" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+
+            <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3" href="#" role="button"><i
+                    class="fab fa-instagram"></i></a>
+
+
+
+            <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3"
+                href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" role="button"><i
+                    class="fab fa-google"></i></a>
+
+            <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3"
+                href="Contacts.html"
+                role="button"><i class="fa-solid fa-map-location-dot"></i></a>
+
+        </section>
+
+        </div>
+
+
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white" href="#">Kothrud Animal Welfare Association, Pune</a>
+            <a>| All Rights Reserved |</a>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: rgba(10, 184, 227, 0.641);">
+                <a>Developed and Managed by Rushabh Jangade & Others</a>
+       </div>
+
+    </footer>
+
+    <!-- Footer SAMPLA -->
+
+
+
+
+    <!-- JAVA SCRIPT NAV BAR BLACK WALI -->
+    <script>
+        const navEl = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 56) {
+                navEl.classList.add('navbar-scrolled');
+            } else if (window.scrollY < 56) {
+                navEl.classList.remove('navbar-scrolled')
+            }
+        });
+    </script>
+    <!-- JAVA SCRIPT NAV BAR BLACK WALI -->
+
+
+    <!-- JAVA SCRIPT FOR TOGGLE BUTTON BARK SOUND  -->
+    <!-- RATRI 12 TE 4.30 PARIYNTA KELA AHE PLEASE APPRECIATE -->
+    <script>
+        var btn = document.getElementById("button");
+        function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
+    <!-- JAVA SCRIPT FOR TOGGLE BUTTON BARK SOUND  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

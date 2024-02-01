@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawa Rescue</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+
+    <style>
+
+        #Rescue {
+            padding-top: 10vh;
+        }
+
+        :root {
+            --surface-color: #fff;
+            --curve: 40;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            /* font-family: 'Noto Sans JP', sans-serif; */
+            background-color: #fef8f8;
+        }
+
+        /*form styles*/
+        #msform {
+            text-align: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        #msform fieldset .form-card {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            padding: 20px 40px 30px 40px;
+            box-sizing: border-box;
+            width: 94%;
+            margin: 0 3% 20px 3%;
+
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 20px;
+
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
+
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+
+        #msform fieldset .form-card {
+            text-align: left;
+            color: #9E9E9E;
+        }
+
+        #msform input,
+        #msform textarea {
+            padding: 0px 8px 4px 8px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0px;
+            margin-bottom: 25px;
+            margin-top: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: montserrat;
+            color: #2C3E50;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        #msform input:focus,
+        #msform textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: none;
+            font-weight: bold;
+            border-bottom: 2px solid skyblue;
+            outline-width: 0;
+        }
+
+        /*Blue Buttons*/
+        #msform .action-button {
+            width: 100px;
+            background: skyblue;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px;
+        }
+
+        #msform .action-button:hover,
+        #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
+        }
+
+        /*Previous Buttons*/
+        #msform .action-button-previous {
+            width: 100px;
+            background: #616161;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px;
+        }
+
+        #msform .action-button-previous:hover,
+        #msform .action-button-previous:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
+        }
+
+        /*Dropdown List Exp Date*/
+        select.list-dt {
+            border: none;
+            outline: 0;
+            border-bottom: 1px solid #ccc;
+            padding: 2px 5px 3px 5px;
+            margin: 2px;
+        }
+
+        select.list-dt:focus {
+            border-bottom: 2px solid skyblue;
+        }
+
+        /*The background card*/
+        .card {
+            z-index: 0;
+            border: none;
+            border-radius: 0.5rem;
+            position: relative;
+        }
+
+        /*FieldSet headings*/
+        .fs-title {
+            font-size: 25px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        /*progressbar*/
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+            color: lightgrey;
+        }
+
+        #progressbar .active {
+            color: #000000;
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            font-size: 12px;
+            width: 25%;
+            float: left;
+            position: relative;
+        }
+
+        /*Icons in the ProgressBar*/
+        #progressbar #account:before {
+            font-family: FontAwesome;
+            content: "\f023";
+        }
+
+        #progressbar #personal:before {
+            font-family: FontAwesome;
+            content: "\f007";
+        }
+
+        #progressbar #payment:before {
+            font-family: FontAwesome;
+            content: "\f09d";
+        }
+
+        #progressbar #confirm:before {
+            font-family: FontAwesome;
+            content: "\f00c";
+        }
+
+        /*ProgressBar before any progress*/
+        #progressbar li:before {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            display: block;
+            font-size: 18px;
+            color: #ffffff;
+            background: lightgray;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            padding: 2px;
+        }
+
+        /*ProgressBar connectors*/
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: lightgray;
+            position: absolute;
+            left: 0;
+            top: 25px;
+            z-index: -1;
+        }
+
+        /*Color number of the step and the connector before it*/
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: skyblue;
+        }
+
+        /*Imaged Radio Buttons*/
+        .radio-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .radio {
+            display: inline-block;
+            width: 204;
+            height: 104;
+            border-radius: 0;
+            background: lightblue;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            cursor: pointer;
+            margin: 8px 2px;
+        }
+
+        .radio:hover {
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .radio.selected {
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /*Fit image in bootstrap div*/
+        .fit-image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        #pills-1>form>div:nth-child(3)>div.mx-auto.mb-3.mt-4.col-md-4>div:nth-child(3)>label>a,
+        #surrenderform > div:nth-child(3) > div.mx-auto.mb-3.mt-4.col-md-3 > div:nth-child(3) > label > a {
+            color: grey;
+        }
+
+        #pills-1>form>div:nth-child(3)>div.mx-auto.mb-3.mt-4.col-md-4>div:nth-child(4)>label>a,
+        #surrenderform > div:nth-child(3) > div.mx-auto.mb-3.mt-4.col-md-3 > div:nth-child(4) > label > a {
+            color: orange;
+        }
+
+        .nav-pills .nav-link {
+    display: block;
+    padding: 0.4rem 0rem;
+    color: #fef8f8;
+    border:1px solid #818283c4 !important;
+        }
+
+        .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+            color: #fff;
+    background-color: #818283c4;
+
+        }
+    </style>
+
+
+</head>
+
+
+<body style="color: white; background-color: black;">
+
+    <!-- NAV BAR SURU -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-scrolled">
+        <div class="container-fluid">
+            <img src="assests/LOGO NO BG WHITE (1).png" alt="" width="60" height="60"
+                class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="Index.html">K.A.W.A.</a>
+
+            <button id="button" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation" input type="button" onclick="play()"><audio id="audio"
+                    src="assests/woof.mp3"></audio>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="About_us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="Sterlization.html">Sterilization</a>
+                    </li>
+
+                    <!-- ADOPTION WALA SURU -->
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" id="dropbtn" href="Adoption-dog.html">Adoption</a>
+
+                            <!-- <div class="dropdown-content">
+                            <br><a href="#">Adopt a Dog/Cat
+                                <i class="fa-sharp fa-solid fa-dog"></i>
+                            </a> <br>
+                            <a href="#">Adopt a 
+                                <i class="fa-sharp fa-solid fa-cat">
+
+                                </i>
+                            </a>
+                        </div> -->
+                        </div>
+                    </li>
+
+                    <!-- ADOPTION WALA SAMPLA -->
+
+
+                    <!-- GET INVOLVED WALA -->
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" id="dropbtn" href="#">Get Involved</a>
+
+                            <div class="dropdown-content">
+                                <a href="Involve.html">Sponsor an Animal
+                                    <i class="fa-solid fa-handshake-simple"></i>
+                                </a><br>
+                                <a href="Involve.html">Foster Puppy or Kitten
+                                    <i class="fa-solid fa-house-medical"></i>
+                                </a><br>
+                                <a href="Involve.html">Become Volunteer
+                                    <i class="fa-solid fa-hand-holding-hand"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <!-- GET INVOLVED WALA -->
+
+                    <!-- ANIMAL RESUCE WALA -->
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link" id="dropbtn">Animal Rescue</a>
+
+                            <div class="dropdown-content">
+                                <a href="#F/Lform" class="dark">Animal Lost or Found <i
+                                        class="fa-solid fa-exclamation"></i></a><br>
+                                <a href="#rescueform">Report Animal Cruelty <i class="fa-solid fa-hands-bound"></i></a><br>
+                                <a href="#surrenderform">Surrender Animal <i class="fa-sharp fa-solid fa-hands-holding-child"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- ANIMAL RESUCE WALA -->
+
+                    <!-- DONATION WALA SURU -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="Donation.html">Donate
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </a>
+                    </li>
+
+                    <!-- DONATION WALA SAMPLA -->
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="dropbtn" href="Contacts.html">Contact Us <i
+                                class="fa-solid fa-map-location-dot"></i></a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NAV BAR SAMPLA -->
+
+    <div id="Rescue" class=" offset mt-3 justify-content-center">
+        <div class="post heading text-center">
+            <h3 class="display-4 fw-bold">Animal Rescue</h3>
+            <hr class="w-50 mx-auto">
+            <h1 style="padding: 1rem;">A Cause For the Paws</h1>
+        </div>
+    </div>
+    <!-- MultiStep Form -->
+    <div class="col-12 col-lg-10 mx-auto">
+        <div class="bg p-4" style="background-color: #000000;">
+            <ul class="nav nav-pills justify-content-between mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item w-25" role="presentation">
+                    <button class="nav-link w-100 h-100 active" id="pills-1-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1"
+                        aria-selected="true">Animal Lost or Found</button>
+                </li>
+                <li class="nav-item w-25" role="presentation">
+                    <button class="nav-link w-100 h-100" id="pills-2-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2"
+                        aria-selected="false">Report Animal Cruelty</button>
+                </li>
+                <li class="nav-item w-25" role="presentation">
+                    <button class="nav-link w-100 h-100" id="pills-3-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3"
+                        aria-selected="false">Surrender Animal</button>
+                </li>
+            </ul>
+
+
+            <!-- Found and Lost wala Form -->
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+
+
+                    <form action="/action_page.php" class="was-validated" id="F/Lform" name="Lost-Found" method="POST">
+                        <div class="row">
+                            <div class="mb-3 mt-3 col-md-4"">
+                            <label for=" fname" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="fname" placeholder="Enter username"
+                                    name="Name" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="phone1" class="form-label">Contact Number:</label>
+                                <input type="tel" class="form-control" id="phone1" placeholder="Enter phone"
+                                    name="Contact" required minlength="10" maxlength="10">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="phone" class="form-label">Alternate Contact:</label>
+                                <input type="tel" class="form-control" id="phone2" placeholder="Enter Alternate phone"
+                                    name="Alternate_Contact" minlength="10" maxlength="10">
+                                <!-- <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div> -->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="email" class="form-label">Email ID:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email ID"
+                                    name="Email" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="date" class="form-label">Lost/Found Date</label>
+                                <input type="date" class="form-control" id="date" placeholder="Date"  name="Incident_Date"
+                                    required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4"">
+                                <label for=" Location" class="form-label">Address:</label>
+                                <input type="Location" class="form-control" id="Location"
+                                    placeholder="Area Location where you have Lost/Found pet" name="Location" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 mt-3 col-md-4"">
+                                <label for=" fname" class="form-label">Breed:</label>
+                                <input type="text" class="form-control" id="fname"
+                                    placeholder="Type of breed or Identity of Pet" name="Breed" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="age" class="form-label">Age:</label>
+                                <input type="tel" class="form-control" id="age"
+                                    placeholder="What Would be the age of The Pet(Approx)" name="Age" required
+                                    minlength="1" maxlength="2">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mx-auto mb-3 mt-4 col-md-4">
+                                <label for="Type" class="form-label">Select Pet:</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="Cat_Dog"
+                                        id="inlineRadio1" value="CAT">
+                                    <label class="form-check-label" for="inlineRadio1"><a>Cat
+                                            <i class="fa-sharp fa-solid fa-cat fs-2">
+                                            </i>
+                                        </a></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="Cat_Dog"
+                                        id="inlineRadio2" value="DOG">
+                                    <label class="form-check-label" for="inlineRadio2"><a>Dog
+                                            <i class="fa-sharp fa-solid fa-dog fs-2"></i>
+                                        </a></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class=" mb-3 mt-4 col-9 d-inline-flex">
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" id="inputGroupFile01" name="Photo" accept="image/*" required>
+                                    <img src="" alt="">
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">
+                                        Please Upload Valid image file
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-3 mb-3 mt-4 align-middle">
+                                <div class="input-group mb-5">
+                                    <button type="submit" value="submit" name="submit" class="btn btn-primary btn-sm">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                                class="position-relative bd-example-toasts">
+                                <div class="toast-header">
+                            
+                                    <img src="https://i.pinimg.com/originals/c5/6c/4c/c56c4c47aa3f89c78d642c253d912d11.png"
+                                        Styleclass="rounded me-2" style="height:60px;" alt="#">
+                                    <strong class="me-auto" style="color: black;">Thank You! We will be in touch shortly.
+                                       </strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body" style="color: black;">
+                                    From-K.A.W.A
+                                </div>
+                            </div>
+
+                    </form>
+                </div>
+                <!-- Found and Lost wala Form -->
+
+
+                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+                    <!-- Rescue Wala form  -->
+
+                    <form action="/action_page.php" class="was-validated" id="rescueform" name="Cruelty" method="POST">
+                        <div class="row">
+                            <div class="mb-3 mt-3 col-md-4"">
+                                <label for=" fname" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="fname" placeholder="Enter username"
+                                    name="Name" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="phone1" class="form-label">Contact Number:</label>
+                                <input type="tel" class="form-control" id="phone1" placeholder="Enter phone"
+                                    name="Contact" required minlength="10" maxlength="10">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="phone" class="form-label">Alternate Contact:</label>
+                                <input type="tel" class="form-control" id="phone2" placeholder="Enter Alternate phone"
+                                    name="Alternate_Contact" minlength="10" maxlength="10">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="email" class="form-label">Email ID:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email ID"
+                                    name="Email" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="date" class="form-label">Date of Observation</label>
+                                <input type="date" class="form-control" id="date" placeholder="Date" name="Observation_Date"
+                                    required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for=" Location" class="form-label">Address:</label>
+                                <input type="Location" class="form-control" id="Location"
+                                    placeholder="Area Location Where Animal Is Located" name="Location" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col"> -->
+                        <div class="row">
+                            <div class="mb-3 mt-4 col-md-6">
+                                <label for="validationServer04" class="form-label">The issue I'm reporting
+                                    involves:</label>
+                                <select class="form-select is-invalid" id="validationServer04"
+                                    aria-describedby="validationServer04Feedback" class="my-auto" name="Cruelty_Type" required>
+                                    <option selected disabled value="">Choose ...</option>
+                                    <option>Domestic or farmed animals and wildlife</option>
+                                    <option>Exotic animals in captivity</option>
+                                    <option>Animal used for Entertainment</option>
+                                    <option>Others</option>
+                                </select>
+                                <div id="validationServer04Feedback" class="invalid-feedback">
+                                    <!-- Please select a valid state. -->
+                                </div>
+                            </div>
+                            <div class="mb-3 mt-3 col-md-6">
+                                <div class="input-group">
+                                    <label class="form-label">Photos help us to locate animal. If you have any photos of
+                                        the animal please attach them:</label>
+                                    <input type="file" class="form-control" id="inputGroupFile02" Name="Photo" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 mt-5 col-12 col-lg-8 mx-auto">
+                            <label for=" fname" class="form-label">Please describe your concern, including the names and
+                                contact information of the individuals and agencies involved, dates and times, the exact
+                                location of the incident:</label>
+                            <input type="text" class="form-control" id="rescue" name="Description" required
+                                style="height: 100px">
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback"> </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-1 mx-auto">
+                                <button type="submit" value="submit" name="submit" class="btn btn-primary btn-sm">Submit</button>
+                            </div>
+                        </div>
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                                class="position-relative bd-example-toasts">
+                                <div class="toast-header">
+                            
+                                    <img src="https://i.pinimg.com/originals/c5/6c/4c/c56c4c47aa3f89c78d642c253d912d11.png"
+                                        Styleclass="rounded me-2" style="height:60px;" alt="#">
+                                    <strong class="me-auto" style="color: black;">Thank You! We will be in touch shortly.</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body" style="color: black;">
+                                    From-K.A.W.A  
+                                </div>
+                            </div>
+                    </form>
+
+                    <!-- Rescue Wala form  -->
+                </div>
+
+
+                <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+
+                    <!-- Surrender Animal Wala Form -->
+                    <form action="/action_page.php" class="was-validated" id="surrenderform" name="Surrender" method="POST">
+                        <div class="row">
+                            <div class="mb-3 mt-3 col-md-4"">
+                    <label for=" fname" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="fname" placeholder="Enter username"
+                                    name="Name" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="phone1" class="form-label">Contact Number:</label>
+                                <input type="tel" class="form-control" id="phone1" placeholder="Enter phone"
+                                    name="Contact" required minlength="10" maxlength="10">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <div class="mb-3 mt-3 col-md-4">
+                                <label for="phone1" class="form-label"> Alternate Contact Number:</label>
+                                <input type="tel" class="form-control" id="phone1" placeholder="Alternate Enter phone"
+                                    name="Alternate_Contact" required minlength="10" maxlength="10">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                        </div>
+
+                            <div class="row">
+                                <div class="mb-3 mt-3 col-md-4">
+                                    <label for="email" class="form-label">Email ID:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter Email ID"
+                                        name="Email" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+
+                                <div class="mb-3 mt-3 col-md-8">
+                                    <label for=" Location" class="form-label">Address:</label>
+                                    <input type="Location" class="form-control" id="Location"
+                                        placeholder="Address of Owner" name="Address" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-3 mt-3 col-md-3">
+                                    <label for=" fname" class="form-label">Pet Name:</label>
+                                    <input type="text" class="form-control" id="fname" placeholder="Name of Animal"
+                                        name="Pet_Name" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+
+                                <!-- <div class="row"> -->
+                                <div class="mb-3 mt-3 col-md-3">
+                                    <label for=" fname" class="form-label">Breed:</label>
+                                    <input type="text" class="form-control" id="fname"
+                                        placeholder="Type of breed or Identity of Pet" name="Breed" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+
+                                <div class="mb-3 mt-3 col-md-3">
+                                    <label for="age" class="form-label">Age:</label>
+                                    <input type="tel" class="form-control" id="age"
+                                        placeholder="The age of The Pet(Approx)" name="Age" required minlength="1"
+                                        maxlength="2">
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+
+                                <div class="mx-auto mb-3 mt-4 col-md-3">
+                                    <label for="Type" class="form-label">Select Pet:</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Cat_Dog"
+                                            id="inlineRadio1" value="CAT">
+                                        <label class="form-check-label" for="inlineRadio1"><a>Cat
+                                                <i class="fa-sharp fa-solid fa-cat fs-2">
+                                                </i>
+                                            </a></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Cat_Dog"
+                                            id="inlineRadio2" value="DOG">
+                                        <label class="form-check-label" for="inlineRadio2"><a>Dog
+                                                <i class="fa-sharp fa-solid fa-dog fs-2"></i>
+                                            </a></label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 mt-5 col-12 col-lg-8 mx-auto">
+                                    <label for="fname" class="form-label">Reason for Surrender:</label>
+                                    <input type="text" class="form-control" id="rescue" name="Reason" required
+                                        style="height: 100px">
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback"> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 mx-auto">
+                                        <button type="submit" value="submit" name="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                                class="position-relative bd-example-toasts">
+                                <div class="toast-header">
+                            
+                                    <img src="https://i.pinimg.com/originals/c5/6c/4c/c56c4c47aa3f89c78d642c253d912d11.png"
+                                        Styleclass="rounded me-2" style="height:60px;" alt="#">
+                                    <strong class="me-auto" style="color: black;">Thank You! We will be in touch shortly.</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body" style="color: black;">
+                                    From-K.A.W.A
+                                </div>
+                            </div>
+                    </form>
+                        </div>
+                        
+                        <!-- Surrender Animal Wala Form -->
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+
+     <!-- FOOTER SURU -->
+     <div class="footer_img"
+     style="display: flex; justify-content: center; height: 50%; z-index: 2; width:fit-content ;">
+     <img src="./assests/footer bar.png" class="img-fluid"
+         style="margin-bottom:-11%; background-color: transparent;">
+ </div>
+
+ <footer class="bg-dark text-white justify-content-between" style="z-index: 1;">
+
+     <section class="mx-auto pt-3">
+         <div class="container pb-0 d-flex justify-content">
+
+
+             <a class="btn btn-outline-light btn-floating m-1 mx-auto" href="Adoption-dog.html" role="button">
+                 <img src="assests/white paw fliped.png" alt="" width="30" height="30"
+                     class="d-flex justify-content-start align-text-top mx-auto">
+                 Adopt Animal</a>
+
+             <a class="btn btn-outline-light btn-floating m-1 mx-auto" href="Donation.html" role="button">
+                 <img src="assests/WhitePaw-for Walking.png" alt="" width="30" height="30"
+                     class="d-flex justify-content-end align-text-top mx-auto">
+                 Donate</a>
+
+
+         </div>
+     </section>
+ </footer>
+ <footer class="bg-dark text-center text-white">
+
+     <section class="mb-4 mx-auto">
+
+         <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3" href="#" role="button"><i
+                 class="fab fa-facebook-f"></i></a>
+
+         <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3" href="#" role="button"><i
+                 class="fab fa-instagram"></i></a>
+
+
+
+         <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3"
+             href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" role="button"><i
+                 class="fab fa-google"></i></a>
+
+         <a class="btn btn-outline-light btn-floating m-1 mt-3 mx-3" href="Contacts.html" role="button"><i
+                 class="fa-solid fa-map-location-dot"></i></a>
+
+     </section>
+
+     <!-- </footer> -->
+
+
+
+
+
+     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+         © 2022 Copyright:
+         <a class="text-white" href="#">Kothrud Animal Welfare Association, Pune</a>
+         <a>| All Rights Reserved |</a>
+     </div>
+     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: rgba(10, 184, 227, 0.641);">
+         <a>Developed and Managed by Rushabh Jangade & Others</a>
+     </div>
+
+ </footer>
+
+ <!-- Footer SAMPLA -->
+
+
+    <!-- JAVA SCRIPT NAV BAR BLACK WALI -->
+    <script>
+        const navEl = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 56) {
+                navEl.classList.add('navbar-scrolled');
+            } else if (window.scrollY < 56) {
+                navEl.classList.remove('navbar-scrolled')
+            }
+        });
+    </script>
+    <!-- JAVA SCRIPT NAV BAR BLACK WALI -->
+
+
+    <!-- JAVA SCRIPT FOR TOGGLE BUTTON BARK SOUND  -->
+    <!-- RATRI 12 TE 4.30 PARIYNTA KELA AHE PLEASE APPRECIATE -->
+    <script>
+        var btn = document.getElementById("button");
+        function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
+    <!-- JAVA SCRIPT FOR TOGGLE BUTTON BARK SOUND  -->
+
+    <!-- Found and Lost wala Form -->
+    <script>
+        {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzBV2Y_w2XyUaAn2vULP7ieMDfS9sqt8rCLrWDB4rICa-UuRUbqG0d7oxwMHprS1iVM/exec'
+        const form = document.forms['Lost-Found']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        });
+    }
+      </script> 
+    <!-- Found and Lost wala Form -->
+
+
+    <!-- Animal Cruelty Wala Form -->
+    <script>
+        {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyJ6z4rFiPEO75sE6yaebZXWrE7iqc2IhrBsJDkIr551IR77cZOZ25rib5Q2pWv-8x5/exec'
+        const form = document.forms['Cruelty']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        });
+    }
+      </script>
+
+    <!-- Animal Cruelty Wala Form -->
+
+  <!-- Surrender Animal Wala From -->
+  
+      
+      <script>
+        {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwZNID5Qh9YkmKnssjmtVoGemyHDNgfvE_fs35ffpXD63LdWC5hravCR93Cl5Jn2bTabw/exec'
+        const form = document.forms['surrenderform']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+    }
+      </script>
+
+    <!-- Surrender Animal Wala From -->
+
+
+<!-- Photo Upload for Lost-Found -->
+<script>
+    {
+    let url = "https://script.google.com/macros/s/AKfycbw9IWpOS42p-YdpsEvGaXEX-HIHswm81jPtaCygDX3HLC6FNnLenEiHDUH0nFdADP9vHQ/exec";
+    let file = document.querySelector("input");
+    let img = document.querySelector("img");
+    file.addEventListener('change',()=>{
+        let fr = new FileReader();
+        fr.addEventListener('loadend',()=>{
+            let res = fr.result;
+            img.src=res;
+            let spt = res.split("base64,")[1];
+            // console.log(spt);
+            let obj = {
+                base64:spt,
+                type:file.files[0].type,
+                name:file.files[0].name
+            }
+            fetch(url,{
+                method:"POST",
+                body:JSON.stringify(obj)
+            })
+            .then(r=>r.text())
+            .then(data=>console.log(data))
+ 
+        })
+        fr.readAsDataURL(file.files[0])
+    })
+}
+</script>
+
+<!-- Photo Upload for Lost-Found -->
+
+
+  <!-- JAVA SCRIPT FOR TOAST  -->
+  <script>
+
+var rescueForm = document.getElementById("rescueform");
+    var flForm = document.getElementById("F/Lform");
+    var surrenderForm = document.getElementById("surrenderform");
+    var liveToast = document.getElementById("liveToast");
+    if(liveToast) {
+        rescueForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            var toast = new bootstrap.Toast(liveToast);
+            toast.show();
+        })
+        flForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            var toast = new bootstrap.Toast(liveToast);
+            toast.show();
+        })
+        surrenderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            var toast = new bootstrap.Toast(liveToast);
+            toast.show();
+        })
+    }
+
+</script>
+
+  <!-- JAVA SCRIPT FOR TOAST  -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
